@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo,web," />
+  <meta name="keywords" content="cocos2d-js,ndk," />
 
 
 
@@ -53,16 +53,31 @@
 
 
 
-<meta name="description" content="转移到hexo啦~果然wordpress老是要打理好麻烦啊，我还是乖乖的用些静态页面把，而且我的那个便宜的空间。登录上去特别慢，还是好好当个梯子好了。">
+<meta name="description" content="google需要的资料,然后参考wiki下载python 依赖库yaml cheetah命令行:python -m easy_install pyyamlpython -m easy_install cheetah搞定.然后打开cocos2d-x js绑定脚本的test的目录.
+
+修改user.cfg userconf.ini按照目录配置即可
+运行即可
+
+如果出现  ‘string not fou">
 <meta property="og:type" content="article">
-<meta property="og:title" content="转移到hexo了!">
-<meta property="og:url" content="http://yoursite.com/2015/my-first-hexo-experience/index.html">
+<meta property="og:title" content="SuperAnim 绑定js过程">
+<meta property="og:url" content="http://yoursite.com/post/cocos-js-binding-process/index.html">
 <meta property="og:site_name" content="黑猪的博客">
-<meta property="og:description" content="转移到hexo啦~果然wordpress老是要打理好麻烦啊，我还是乖乖的用些静态页面把，而且我的那个便宜的空间。登录上去特别慢，还是好好当个梯子好了。">
-<meta property="og:updated_time" content="2015-11-14T09:22:53.384Z">
+<meta property="og:description" content="google需要的资料,然后参考wiki下载python 依赖库yaml cheetah命令行:python -m easy_install pyyamlpython -m easy_install cheetah搞定.然后打开cocos2d-x js绑定脚本的test的目录.
+
+修改user.cfg userconf.ini按照目录配置即可
+运行即可
+
+如果出现  ‘string not fou">
+<meta property="og:updated_time" content="2015-11-14T10:03:58.607Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="转移到hexo了!">
-<meta name="twitter:description" content="转移到hexo啦~果然wordpress老是要打理好麻烦啊，我还是乖乖的用些静态页面把，而且我的那个便宜的空间。登录上去特别慢，还是好好当个梯子好了。">
+<meta name="twitter:title" content="SuperAnim 绑定js过程">
+<meta name="twitter:description" content="google需要的资料,然后参考wiki下载python 依赖库yaml cheetah命令行:python -m easy_install pyyamlpython -m easy_install cheetah搞定.然后打开cocos2d-x js绑定脚本的test的目录.
+
+修改user.cfg userconf.ini按照目录配置即可
+运行即可
+
+如果出现  ‘string not fou">
 
 
 
@@ -74,7 +89,7 @@
   };
 </script>
 
-  <title> 转移到hexo了! | 黑猪的博客 </title>
+  <title> SuperAnim 绑定js过程 | 黑猪的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="default">
@@ -194,7 +209,7 @@
             
             
               
-                转移到hexo了!
+                SuperAnim 绑定js过程
               
             
           </h1>
@@ -203,8 +218,8 @@
         <div class="post-meta">
           <span class="post-time">
             Posted on
-            <time itemprop="dateCreated" datetime="2015-11-14T16:46:47+08:00" content="2015-11-14">
-              2015-11-14
+            <time itemprop="dateCreated" datetime="2015-03-21T13:01:13+08:00" content="2015-03-21">
+              2015-03-21
             </time>
           </span>
 
@@ -213,8 +228,8 @@
               &nbsp; | &nbsp; In
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/日常/" itemprop="url" rel="index">
-                    <span itemprop="name">日常</span>
+                  <a href="/categories/cocos2d/" itemprop="url" rel="index">
+                    <span itemprop="name">cocos2d</span>
                   </a>
                 </span>
 
@@ -242,7 +257,16 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="转移到hexo啦~">转移到hexo啦~</h1><p>果然wordpress老是要打理好麻烦啊，我还是乖乖的用些静态页面把，而且我的那个便宜的空间。登录上去特别慢，还是好好当个梯子好了。</p>
+        <span itemprop="articleBody"><p>google需要的资料,然后参考wiki下载python 依赖库yaml cheetah<br>命令行:<br>python -m easy_install pyyaml<br>python -m easy_install cheetah<br>搞定.<br>然后打开cocos2d-x js绑定脚本的test的目录.</p>
+<ol>
+<li>修改user.cfg userconf.ini按照目录配置即可</li>
+<li>运行即可</li>
+</ol>
+<p>如果出现  ‘string not found’+<br>请使用 ndk-android-n9d 来进行编译,修改 test.ini 安卓ndk目录下libstdc++/4.7/目录以及升级了,修改为libstdc++/4.8/ 就可以通过.其他ndk可以继续修改头文件依赖来通过.<br>只要见到这个<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">---------------------------------</span><br><span class="line">Generating bindings succeeds.</span><br><span class="line">---------------------------------</span></span><br></pre></td></tr></table></figure></p>
+<p>就可以认为通过<br>基础环境基本完成,接下来是几个动画系统的js绑定</p>
+<hr>
+<p>这里有几篇文章很好了分析了c++与js的调用机制,先阅读会对后面的工作有很多进展<br><a href="http://goldlion.blog.51cto.com/4127613/1353583" target="_blank" rel="external">http://goldlion.blog.51cto.com/4127613/1353583</a><br><a href="http://goldlion.blog.51cto.com/4127613/1354185" target="_blank" rel="external">http://goldlion.blog.51cto.com/4127613/1354185</a><br><a href="http://goldlion.blog.51cto.com/4127613/1354628" target="_blank" rel="external">http://goldlion.blog.51cto.com/4127613/1354628</a><br><a href="http://goldlion.blog.51cto.com/4127613/1354756" target="_blank" rel="external">http://goldlion.blog.51cto.com/4127613/1354756</a><br><a href="http://goldlion.blog.51cto.com/4127613/1354903" target="_blank" rel="external">http://goldlion.blog.51cto.com/4127613/1354903</a><br><a href="http://goldlion.blog.51cto.com/4127613/1357617" target="_blank" rel="external">http://goldlion.blog.51cto.com/4127613/1357617</a><br><a href="http://goldlion.blog.51cto.com/4127613/1357886" target="_blank" rel="external">http://goldlion.blog.51cto.com/4127613/1357886</a></p>
+<p>这篇<a href="http://blog.csdn.net/einsteinlike/article/details/32698613" target="_blank" rel="external">文章</a>写的非常详细,如有需要可以参考里面的方法对cocos2d-js v3.2的进行绑定.<br>另外我对其中的文章中的未详细说明的地方再补充一下.<br>问题2:里面由于clang升级到了3.3,<br>修改<br>        <code>clang_flags = -nostdinc -x c++ -std=c++11</code> 为<br>        <code>clang_flags = -nostdinc -x c++ -std=c++11 -U __SSE__</code><br>问题3:现在我用的环境不会中断编译,只是生成的api不好导入到ide中,如果不需要补全的同学不需要关系着问题,修改后可以仍然导入ide补全<br>问题4:<br>由于嫁接上去的库用到回调函数.<br>参考<a href="http://discuss.cocos2d-x.org/t/bindings-generator-can-not-auto-binding-if-the-method-has-callback-function-param/13128" target="_blank" rel="external">帖子</a>类似于callback ,delegate等运行的情况无法做到自动绑定.<br>因为工具无法做到完全自动绑定，所以必须有一部分手写的（脚本语言都是这样，习惯就好了，谢谢）。其实同学们应该理解为这是一个c++调用js的情况.所以请参考<a href="http://www.tairan.com/archives/4902" target="_blank" rel="external">文章</a>,自行对回调编写,也可以参考<code>($工程目录)/frameworks/js-binding/bindings/manual</code>下的写法来编写需要的功能.需要写一些js的接口方便调用.</p>
 </span>
       
     </div>
@@ -251,13 +275,31 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag">#hexo</a>
+            <a href="/tags/cocos2d-js/" rel="tag">#cocos2d-js</a>
           
-            <a href="/tags/web/" rel="tag">#web</a>
+            <a href="/tags/ndk/" rel="tag">#ndk</a>
           
         </div>
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/cocos2d-x-animtion-records/" rel="next" title="cocos2d-x动画插件的接入记录">
+                <i class="fa fa-chevron-left"></i> cocos2d-x动画插件的接入记录
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/my-first-hexo-experience/" rel="prev" title="转移到hexo了!">
+                转移到hexo了! <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -315,28 +357,28 @@
 
       <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="/images/default_avatar.jpg" alt="黑猪" itemprop="image"/>
+          <img class="site-author-image" src="/images/avatar.png" alt="黑猪" itemprop="image"/>
           <p class="site-author-name" itemprop="name">黑猪</p>
         </div>
         <p class="site-description motion-element" itemprop="description"></p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">categories</span>
               
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">tags</span>
               </a>
           </div>
@@ -368,7 +410,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#转移到hexo啦~"><span class="nav-number">1.</span> <span class="nav-text">转移到hexo啦~</span></a></li></ol></div>
+              <p class="post-toc-empty">This post does not have a Table Of Contents</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

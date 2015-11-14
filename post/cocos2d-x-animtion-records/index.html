@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Dragonbones,c++,cocos2d-x,lwf,sam," />
 
 
 
@@ -53,15 +53,22 @@
 
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="黑猪的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="由于自己的喜好吧,也不喜欢美术那边上手难度太大,于是我就决定研究的2d动画效果基本是基于flash的.总而言之,flash是最好的2d动画制作工具之一.既然如此,我们就开始吧~
+骨骼动画插件介绍:如果要限定flash基本就这个dragonbones除非你购买专业版的spine.做出来的效果差别不会特别大.对了spine还有个最好的地方可以绑定碰撞区域/自由变换等种骨骼控件等高级实用功能,有预算的朋">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cocos2d-x动画插件的接入记录">
+<meta property="og:url" content="http://yoursite.com/post/cocos2d-x-animtion-records/index.html">
 <meta property="og:site_name" content="黑猪的博客">
-<meta property="og:description">
+<meta property="og:description" content="由于自己的喜好吧,也不喜欢美术那边上手难度太大,于是我就决定研究的2d动画效果基本是基于flash的.总而言之,flash是最好的2d动画制作工具之一.既然如此,我们就开始吧~
+骨骼动画插件介绍:如果要限定flash基本就这个dragonbones除非你购买专业版的spine.做出来的效果差别不会特别大.对了spine还有个最好的地方可以绑定碰撞区域/自由变换等种骨骼控件等高级实用功能,有预算的朋">
+<meta property="og:image" content="http://i1131.photobucket.com/albums/m552/vipsbpig/groundcoder/dragonbones.gif">
+<meta property="og:image" content="http://i1131.photobucket.com/albums/m552/vipsbpig/groundcoder/sac.gif">
+<meta property="og:image" content="http://i1131.photobucket.com/albums/m552/vipsbpig/groundcoder/lwf.gif">
+<meta property="og:updated_time" content="2015-11-14T10:03:24.039Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="黑猪的博客">
-<meta name="twitter:description">
+<meta name="twitter:title" content="cocos2d-x动画插件的接入记录">
+<meta name="twitter:description" content="由于自己的喜好吧,也不喜欢美术那边上手难度太大,于是我就决定研究的2d动画效果基本是基于flash的.总而言之,flash是最好的2d动画制作工具之一.既然如此,我们就开始吧~
+骨骼动画插件介绍:如果要限定flash基本就这个dragonbones除非你购买专业版的spine.做出来的效果差别不会特别大.对了spine还有个最好的地方可以绑定碰撞区域/自由变换等种骨骼控件等高级实用功能,有预算的朋">
 
 
 
@@ -73,7 +80,7 @@
   };
 </script>
 
-  <title> 黑猪的博客 </title>
+  <title> cocos2d-x动画插件的接入记录 | 黑猪的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="default">
@@ -94,9 +101,7 @@
 
 
 
-  <div class="container one-column 
-   page-home 
-">
+  <div class="container one-column page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -173,24 +178,9 @@
       <div class="main-inner">
         <div id="content" class="content">
           
-  <section id="posts" class="posts-expand">
 
+  <div id="posts" class="posts-expand">
     
-
-    
-    
-      
-      
-        
-        
-        
-      
-
-      
-    
-
-    
-      
 
   
   
@@ -210,211 +200,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/post/my-first-hexo-experience/" itemprop="url">
-                  转移到hexo了!
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            Posted on
-            <time itemprop="dateCreated" datetime="2015-11-14T16:46:47+08:00" content="2015-11-14">
-              2015-11-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; In
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/日常/" itemprop="url" rel="index">
-                    <span itemprop="name">日常</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <h1 id="转移到hexo啦~">转移到hexo啦~</h1><p>果然wordpress老是要打理好麻烦啊，我还是乖乖的用些静态页面把，而且我的那个便宜的空间。登录上去特别慢，还是好好当个梯子好了。</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/post/cocos-js-binding-process/" itemprop="url">
-                  SuperAnim 绑定js过程
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            Posted on
-            <time itemprop="dateCreated" datetime="2015-03-21T13:01:13+08:00" content="2015-03-21">
-              2015-03-21
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; In
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/cocos2d/" itemprop="url" rel="index">
-                    <span itemprop="name">cocos2d</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>google需要的资料,然后参考wiki下载python 依赖库yaml cheetah<br>命令行:<br>python -m easy_install pyyaml<br>python -m easy_install cheetah<br>搞定.<br>然后打开cocos2d-x js绑定脚本的test的目录.</p>
-<ol>
-<li>修改user.cfg userconf.ini按照目录配置即可</li>
-<li>运行即可</li>
-</ol>
-<p>如果出现  ‘string not found’+<br>请使用 ndk-android-n9d 来进行编译,修改 test.ini 安卓ndk目录下libstdc++/4.7/目录以及升级了,修改为libstdc++/4.8/ 就可以通过.其他ndk可以继续修改头文件依赖来通过.<br>只要见到这个<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">---------------------------------</span><br><span class="line">Generating bindings succeeds.</span><br><span class="line">---------------------------------</span></span><br></pre></td></tr></table></figure></p>
-<p>就可以认为通过<br>基础环境基本完成,接下来是几个动画系统的js绑定</p>
-<hr>
-<p>这里有几篇文章很好了分析了c++与js的调用机制,先阅读会对后面的工作有很多进展<br><a href="http://goldlion.blog.51cto.com/4127613/1353583" target="_blank" rel="external">http://goldlion.blog.51cto.com/4127613/1353583</a><br><a href="http://goldlion.blog.51cto.com/4127613/1354185" target="_blank" rel="external">http://goldlion.blog.51cto.com/4127613/1354185</a><br><a href="http://goldlion.blog.51cto.com/4127613/1354628" target="_blank" rel="external">http://goldlion.blog.51cto.com/4127613/1354628</a><br><a href="http://goldlion.blog.51cto.com/4127613/1354756" target="_blank" rel="external">http://goldlion.blog.51cto.com/4127613/1354756</a><br><a href="http://goldlion.blog.51cto.com/4127613/1354903" target="_blank" rel="external">http://goldlion.blog.51cto.com/4127613/1354903</a><br><a href="http://goldlion.blog.51cto.com/4127613/1357617" target="_blank" rel="external">http://goldlion.blog.51cto.com/4127613/1357617</a><br><a href="http://goldlion.blog.51cto.com/4127613/1357886" target="_blank" rel="external">http://goldlion.blog.51cto.com/4127613/1357886</a></p>
-<p>这篇<a href="http://blog.csdn.net/einsteinlike/article/details/32698613" target="_blank" rel="external">文章</a>写的非常详细,如有需要可以参考里面的方法对cocos2d-js v3.2的进行绑定.<br>另外我对其中的文章中的未详细说明的地方再补充一下.<br>问题2:里面由于clang升级到了3.3,<br>修改<br>        <code>clang_flags = -nostdinc -x c++ -std=c++11</code> 为<br>        <code>clang_flags = -nostdinc -x c++ -std=c++11 -U __SSE__</code><br>问题3:现在我用的环境不会中断编译,只是生成的api不好导入到ide中,如果不需要补全的同学不需要关系着问题,修改后可以仍然导入ide补全<br>问题4:<br>由于嫁接上去的库用到回调函数.<br>参考<a href="http://discuss.cocos2d-x.org/t/bindings-generator-can-not-auto-binding-if-the-method-has-callback-function-param/13128" target="_blank" rel="external">帖子</a>类似于callback ,delegate等运行的情况无法做到自动绑定.<br>因为工具无法做到完全自动绑定，所以必须有一部分手写的（脚本语言都是这样，习惯就好了，谢谢）。其实同学们应该理解为这是一个c++调用js的情况.所以请参考<a href="http://www.tairan.com/archives/4902" target="_blank" rel="external">文章</a>,自行对回调编写,也可以参考<code>($工程目录)/frameworks/js-binding/bindings/manual</code>下的写法来编写需要的功能.需要写一些js的接口方便调用.</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/post/cocos2d-x-animtion-records/" itemprop="url">
-                  cocos2d-x动画插件的接入记录
-                </a>
+                cocos2d-x动画插件的接入记录
               
             
           </h1>
@@ -462,10 +248,7 @@
       
 
       
-        
-          <span itemprop="articleBody">
-            
-              <p>由于自己的喜好吧,也不喜欢美术那边上手难度太大,于是我就决定研究的2d动画效果基本是基于flash的.总而言之,flash是最好的2d动画制作工具之一.既然如此,我们就开始吧~</p>
+        <span itemprop="articleBody"><p>由于自己的喜好吧,也不喜欢美术那边上手难度太大,于是我就决定研究的2d动画效果基本是基于flash的.总而言之,flash是最好的2d动画制作工具之一.既然如此,我们就开始吧~</p>
 <p>骨骼动画插件介绍:如果要限定flash基本就这个dragonbones除非你购买专业版的spine.做出来的效果差别不会特别大.对了spine还有个最好的地方可以绑定碰撞区域/自由变换等种骨骼控件等高级实用功能,有预算的朋友可以入手.不然你就买个flash吧.后面还有各种除了骨骼以外的动画可以实用噢.</p>
 <p>下面都是讲把一些动画方法写进引擎,或者作为游戏补充的过程,大家可以抛砖引玉,以后可以自己移植想要的支持系统到cocos2d-x下面.</p>
 <hr>
@@ -506,31 +289,54 @@
 <li>最后链接lua库,编译成功.</li>
 </ol>
 <p>上图:gif这个太大了,只好压缩一下<br><img src="http://i1131.photobucket.com/albums/m552/vipsbpig/groundcoder/lwf.gif" alt="IMAGE lwf.gif"></p>
-
-            
-          </span>
-        
+</span>
       
     </div>
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/Dragonbones/" rel="tag">#Dragonbones</a>
+          
+            <a href="/tags/c/" rel="tag">#c++</a>
+          
+            <a href="/tags/cocos2d-x/" rel="tag">#cocos2d-x</a>
+          
+            <a href="/tags/lwf/" rel="tag">#lwf</a>
+          
+            <a href="/tags/sam/" rel="tag">#sam</a>
+          
+        </div>
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/cocos-js-binding-process/" rel="prev" title="SuperAnim 绑定js过程">
+                SuperAnim 绑定js过程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </article>
 
 
-    
 
-  </section>
-
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
         </div>
@@ -539,6 +345,10 @@
 
 
         
+  <div class="comments" id="comments">
+    
+  </div>
+
 
       </div>
 
@@ -559,8 +369,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table Of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" src="/images/avatar.png" alt="黑猪" itemprop="image"/>
           <p class="site-author-name" itemprop="name">黑猪</p>
@@ -605,6 +424,23 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Dragonbones_编译过程"><span class="nav-number">1.</span> <span class="nav-text">Dragonbones 编译过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">1.1.</span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Super_Animation_Converter_编译过程"><span class="nav-number">2.</span> <span class="nav-text">Super Animation Converter 编译过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lwf"><span class="nav-number">3.</span> <span class="nav-text">lwf</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
       
 
     </div>
@@ -675,6 +511,167 @@
   <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
 
   <script type="text/javascript" src="/js/bootstrap.js"></script>
 
