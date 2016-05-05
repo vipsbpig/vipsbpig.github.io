@@ -211,8 +211,8 @@
             
               
                 
-                <a class="post-title-link" href="/post/my-first-hexo-experience/" itemprop="url">
-                  转移到hexo了!
+                <a class="post-title-link" href="/post/some-godot-info/" itemprop="url">
+                  godot的一些关于gdscript、内存和多线程的理解
                 </a>
               
             
@@ -222,26 +222,11 @@
         <div class="post-meta">
           <span class="post-time">
             Posted on
-            <time itemprop="dateCreated" datetime="2015-11-14T16:46:47+08:00" content="2015-11-14">
-              2015-11-14
+            <time itemprop="dateCreated" datetime="2016-05-05T15:18:16+08:00" content="2016-05-05">
+              2016-05-05
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; In
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/日常/" itemprop="url" rel="index">
-                    <span itemprop="name">日常</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
@@ -264,7 +249,27 @@
         
           <span itemprop="articleBody">
             
-              <h1 id="转移到hexo啦~">转移到hexo啦~</h1><p>果然wordpress老是要打理好麻烦啊，我还是乖乖的用些静态页面把，而且我的那个便宜的空间。登录上去特别慢，还是好好当个梯子好了。</p>
+              <ul>
+<li>gdscript 是一个能够重载c++方法的脚本语言,是怎么做到呢?<br>能够重载c++类的方法,对于c++类的绑定来说很奇怪,这么去理解gdscipt是不对的..<br>c++里面的类的方法,通过急哦版去重载,是不起作用.脚本里面是做了2次包装.脚本的所有call 都先找到script_instance 里面有没有对应的方法.有的话,优先调用脚本的, 所以实际开发的时候，脚本是它的第一语言c++只是第二语言,涉及到性能的地方才会考虑去用c++改写.</li>
+<li><p>不过如果全部包括重载都绑定上去，性能可能会不够?<br>gd本身运行的时候，就是无数的get_method的查询/调用了 , 用来StringName来做key , StringName就是hash过的String<br>用哈希表来对函数名来优化<br>事实上gd调用godot engine比lua调用速度快一些</p>
+</li>
+<li><p>gdscript是怎么管理内存的呢?<br>gd分成两种内存释放模式<br>1.继承node的object,需要手动释放<br>2.继承Resource.的不需要手动释放</p>
+</li>
+</ul>
+<p>错误的node使用方法<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">node</span><span class="identifier"> </span><span class="title">= Sprite</span>.new()</span><br><span class="line"><span class="keyword">node</span><span class="identifier"> </span><span class="title">= null</span> <span class="comment"># 内存泄露</span></span><br><span class="line"><span class="keyword">node</span>.<span class="identifier"></span><span class="title">queue_free</span>() 才是正确的</span><br></pre></td></tr></table></figure></p>
+<p>正确的node 使用方法<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var node1 = <span class="keyword">Node</span>.<span class="identifier"></span><span class="title">new</span>()</span><br><span class="line">var node2 = Sprite.new()</span><br><span class="line">node1.add_child(node2)</span><br><span class="line">node1.queue_free() <span class="comment"># node删除的时候自动删除它下面所有的child</span></span><br></pre></td></tr></table></figure></p>
+<p>正确的Resource的使用方法<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tex = preload(<span class="string">"res://icon.png"</span>)</span><br><span class="line">tex = <span class="keyword">null</span> <span class="preprocessor"># 立刻释放掉</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>这感觉起来有两套很麻烦啊..?<br>事实上godot这套就是正常使用不复杂的做法, Resource你看不到的东西,同一个obj会被n个地方使用,所以做成ref机制的对象.<br>还有一种，node,你看得见的,这个不需要引用计数,而且一定会加载/或者被加载到其他node,所以你只需要关心根节点node的 create/free 流程就行了,所有添加到它下面的node，你都不需要care<br>cocos就不一样了,用同一个引用计数,把事情给复杂化了,你销毁一个场景，都不能确定它下面所有node会被正确释放</p>
+</li>
+<li><p>那怎么才能检查在脚本里面的node在使用的时候是正确的呢?<br>首先,free了的对象不会触发碰撞检测,gd保证call的时候所有参数里的东西都是存在的,但是不保证你在脚本里某个变量指向的node是存在的.<br>万一你之后要使用的某个node，被其他地方释放了<br>这个cocos和gd都可以保证不宕机<br>但是会报错<br>godot里的node都有个instance_id，从1递增，唯一的<br>所以可以这样子做</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">var</span> id = node.<span class="function"><span class="title">get_instance_ID</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>用的时候<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">node</span><span class="identifier"> </span><span class="title">= instance_from_id</span>(id)</span><br><span class="line">if <span class="keyword">node</span><span class="identifier"> </span><span class="title">!= null</span>:</span><br><span class="line">    xxxx</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>godot 能用多线程要怎么做?<br>gd脚本支持多线程,比起其它语言它更加接近真实的c++的多线程实现模式<br>所有正常的脚本都是在主线程调用,多线程下执行的script代码, 只有在Thread.new(obj,”method”)指定的函数里.<br>并不是什么gil,就是和c++的多线程一个鸟样的玩法, 你甚至可以在里面死循环,你就会发现有个cpu 100%负载了,但是主线程的脚本照常跑,是真正的多线程!<br>甚至你主线程的函数和这个runner里如果要同时访问一个dict/array, 你都必须要加锁,否则可能出问题.<br>后台加载/后台网络通讯？ 基本就这两个吧<br>你就专门写2个脚本处理这2个事情，里面维护好这些lock/77 88的事情,就万事大吉了<br>其他地方都是单线程跑<br><img src="http://i1131.photobucket.com/albums/m552/vipsbpig/Image.png" alt="多线程例子"><br>可以理解为call_defrred 操作肯定是在主线程中进行的 .实际上 是把call请求丢到队列里去,然后下一帧，主线程会去专门执行这个队列的所有call.<br>这个函数其实是三个动作：创建线程、为线程的解释器（大意 实际实现应该不是这样）加载代码，返回线程</li>
+</ul>
 
             
           </span>
@@ -328,7 +333,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -342,7 +347,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">tags</span>
               </a>
           </div>
@@ -378,7 +383,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2015</span>
+  <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>
